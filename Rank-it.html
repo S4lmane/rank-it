@@ -3,20 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Ranker | Organize Your Favorite Movies & Shows</title>
+    <title>Rank-it | Organize Your Favorite Movies & Shows</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="app-container">
         <!-- Header -->
         <header>
-            <h1>Media Ranker</h1>
-            <p class="subtitle">Organize your favorite movies and shows</p>
-            <button class="theme-toggle" id="theme-toggle">
-                <i class="fas fa-moon"></i>
-                <span>Dark</span>
-            </button>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-ranking-star"></i>
+                    <div class="logo-text">
+                        <h1>Rank-it</h1>
+                        <p class="subtitle">Organize your favorites</p>
+                    </div>
+                </div>
+
+                <div class="header-controls">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                        <span>Dark</span>
+                    </button>
+                </div>
+            </div>
         </header>
 
         <main>
@@ -24,6 +38,13 @@
             <div class="top-section">
                 <!-- Left Panel: Tier Table -->
                 <section class="tier-table-section">
+                    <div class="section-header">
+                        <h2>Your Rankings</h2>
+                        <div class="tier-legend">
+                            <span class="legend-item">Drag & drop to rank</span>
+                        </div>
+                    </div>
+
                     <div class="tier-table">
                         <div class="tier-row">
                             <div class="tier-label masterpiece">S Tier</div>
@@ -56,11 +77,21 @@
                 <section class="controls-section">
                     <!-- Search Panel -->
                     <div class="search-panel">
+                        <h2>Find Media</h2>
                         <div class="search-container">
-                            <input type="text" class="search-input" placeholder="Search for movies or shows...">
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="text" class="search-input" placeholder="Search for movies or shows...">
+                            </div>
                             <div class="search-type">
-                                <button class="type-btn active" data-type="movie">Movies/TV</button>
-                                <button class="type-btn" data-type="person">Actors</button>
+                                <button class="type-btn active" data-type="movie">
+                                    <i class="fas fa-film"></i>
+                                    <span>Movies/TV</span>
+                                </button>
+                                <button class="type-btn" data-type="person">
+                                    <i class="fas fa-user"></i>
+                                    <span>Actors</span>
+                                </button>
                             </div>
                         </div>
                         <div class="search-results"></div>
@@ -76,35 +107,57 @@
 
                     <!-- Actions Panel -->
                     <div class="actions-panel">
-                        <button class="action-btn" id="export-table">
-                            <i class="fas fa-download"></i>
-                            Export
-                        </button>
-                        <button class="action-btn secondary" id="import-data">
-                            <i class="fas fa-upload"></i>
-                            Import
-                        </button>
+                        <h3>Manage Rankings</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn" id="share-btn">
+                                <i class="fas fa-share-alt"></i>
+                                <span>Share</span>
+                            </button>
+                            <button class="action-btn" id="export-table">
+                                <i class="fas fa-download"></i>
+                                <span>Export</span>
+                            </button>
+                            <button class="action-btn secondary" id="import-data">
+                                <i class="fas fa-upload"></i>
+                                <span>Import</span>
+                            </button>
+                            <button class="action-btn danger" id="clear-all">
+                                <i class="fas fa-trash-alt"></i>
+                                <span>Clear All</span>
+                            </button>
+                        </div>
                         <input type="file" id="file-input" accept=".json" style="display: none;">
-                        <button class="action-btn secondary" id="clear-all">
-                            <i class="fas fa-trash-alt"></i>
-                            Clear All
-                        </button>
                     </div>
                 </section>
             </div>
 
             <!-- Bottom Section: Pending Items -->
             <section class="pending-items-section">
-                <h3 class="section-title">Your Selection</h3>
+                <div class="section-header">
+                    <h2>Your Selection</h2>
+                    <p class="section-subtitle">Drag items to rank them in the tiers above</p>
+                </div>
                 <div class="pending-items"></div>
             </section>
         </main>
+
+        <footer>
+            <p>Made with <i class="fas fa-heart"></i> for movie lovers</p>
+            <p class="copyright">© 2025 Rank-it</p>
+        </footer>
     </div>
 
+    <!-- Toast Notification -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
         <span>Action completed successfully!</span>
     </div>
+
+    <!-- Actor Selection Modal -->
+    <!-- This will be created dynamically in the JS -->
+
+    <!-- Confirm Dialog -->
+    <!-- This will be created dynamically in the JS -->
 
     <script src="script.js"></script>
 </body>
