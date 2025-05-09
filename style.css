@@ -1,6 +1,6 @@
 /* Share modal styles */
 .share-modal .modal-content {
-    max-width: 800px;
+    max-width: fit-content;
 }
 
 .share-instructions {
