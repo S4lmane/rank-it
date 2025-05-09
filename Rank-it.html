@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Ranker | Organize Your Favorite Movies & Shows</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <h1>Media Ranker</h1>
+            <p class="subtitle">Organize your favorite movies and shows</p>
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <span>Dark</span>
+            </button>
+        </header>
+
+        <main>
+            <!-- Top Section: Split Layout -->
+            <div class="top-section">
+                <!-- Left Panel: Tier Table -->
+                <section class="tier-table-section">
+                    <div class="tier-table">
+                        <div class="tier-row">
+                            <div class="tier-label masterpiece">S Tier</div>
+                            <div class="tier-content" data-tier="masterpiece"></div>
+                        </div>
+                        <div class="tier-row">
+                            <div class="tier-label great">A Tier</div>
+                            <div class="tier-content" data-tier="great"></div>
+                        </div>
+                        <div class="tier-row">
+                            <div class="tier-label good">B Tier</div>
+                            <div class="tier-content" data-tier="good"></div>
+                        </div>
+                        <div class="tier-row">
+                            <div class="tier-label decent">C Tier</div>
+                            <div class="tier-content" data-tier="decent"></div>
+                        </div>
+                        <div class="tier-row">
+                            <div class="tier-label mediocre">D Tier</div>
+                            <div class="tier-content" data-tier="mediocre"></div>
+                        </div>
+                        <div class="tier-row">
+                            <div class="tier-label bad">F Tier</div>
+                            <div class="tier-content" data-tier="bad"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Right Panel: Search and Actions -->
+                <section class="controls-section">
+                    <!-- Search Panel -->
+                    <div class="search-panel">
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="Search for movies or shows...">
+                            <div class="search-type">
+                                <button class="type-btn active" data-type="movie">Movies/TV</button>
+                                <button class="type-btn" data-type="person">Actors</button>
+                            </div>
+                        </div>
+                        <div class="search-results"></div>
+                    </div>
+
+                    <!-- Edit Mode Toggle -->
+                    <div class="edit-mode-toggle">
+                        <button id="edit-mode-btn" class="action-btn secondary">
+                            <i class="fas fa-trash"></i>
+                            <span>Edit Mode: Off</span>
+                        </button>
+                    </div>
+
+                    <!-- Actions Panel -->
+                    <div class="actions-panel">
+                        <button class="action-btn" id="export-table">
+                            <i class="fas fa-download"></i>
+                            Export
+                        </button>
+                        <button class="action-btn secondary" id="import-data">
+                            <i class="fas fa-upload"></i>
+                            Import
+                        </button>
+                        <input type="file" id="file-input" accept=".json" style="display: none;">
+                        <button class="action-btn secondary" id="clear-all">
+                            <i class="fas fa-trash-alt"></i>
+    
